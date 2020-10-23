@@ -1,8 +1,10 @@
 package com.xsyz.blog.po;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -25,7 +27,9 @@ public class User {
     private String email;
     private String avatar;
     private Integer type;
-    private Date creatTime;
+    //@JsonFormat(pattern="yyyy-MM-dd", timezone="GMT+8")
+    private Date createTime;
+   // @JsonFormat(pattern="yyyy-MM-dd", timezone="GMT+8")
     private Date updateTime;
     private List<Blog> blogs = new ArrayList<>();
 

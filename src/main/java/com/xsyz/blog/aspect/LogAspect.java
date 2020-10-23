@@ -21,9 +21,7 @@ import javax.xml.transform.Result;
 @Aspect
 @Component
 public class LogAspect {
-
-     Logger logger = LoggerFactory.getLogger(this.getClass());
-
+    Logger logger = LoggerFactory.getLogger(this.getClass());
     @Pointcut("execution(* com.xsyz.blog.web.*.*(..))")
     public void log(){
     }

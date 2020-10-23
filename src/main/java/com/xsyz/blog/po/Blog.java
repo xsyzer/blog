@@ -5,7 +5,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.stereotype.Component;
 
-import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -39,6 +38,7 @@ public class Blog {
     private List<Comment> comments = new ArrayList<>();
     private String tagIds;
     private String description;
-
+    private Long userId;
+    private Long typeId;
 
 }

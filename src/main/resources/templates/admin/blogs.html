@@ -61,9 +61,6 @@
                 <div class="default text">分类</div>
                 <div class="menu">
                   <div th:each="type : ${types}" class="item" data-value="1" th:data-value="${type.id}" th:text="${type.name}">错误日志</div>
-                  <!--/*-->
-                  <div class="item" data-value="2">开发者手册</div>
-                  <!--*/-->
                 </div>
               </div>
               <button id="clear-btn" class="ui compact button">clear</button>
@@ -95,15 +92,15 @@
           </tr>
           </thead>
           <tbody>
-          <tr th:each="blog,iterStat : ${page.content}">
-            <td th:text="${iterStat.count}">1</td>
+          <tr th:each="blog : ${blog}">
+            <td th:text="${blog.id}">1</td>
             <td th:text="${blog.title}">刻意练习清单</td>
             <td th:text="${blog.type.name}">认知升级</td>
             <td th:text="${blog.recommend} ? '是':'否'">是</td>
             <td th:text="${blog.published} ? '发布':'草稿'">草稿</td>
-            <td th:text="${blog.updateTime}">2017-10-02 09:45</td>
+            <td th:text="${#dates.format(blog.updateTime,'yyyy-MM-dd hh:mm')}">2017-10-02 09:45</td>
             <td>
-              <a href="#" th:href="@{/admin/blogs/{id}/input(id=${blog.id})}" class="ui mini teal basic button">编辑</a>
+              <a href="#" th:href="@{/admin/blogs/{id}/add(id=${blog.id})}" class="ui mini teal basic button">编辑</a>
               <a href="#" th:href="@{/admin/blogs/{id}/delete(id=${blog.id})}" class="ui mini red basic button">删除</a>
             </td>
           </tr>
@@ -111,11 +108,11 @@
           <tfoot>
           <tr>
             <th colspan="7">
-              <div class="ui mini pagination menu" th:if="${page.totalPages}>1" >
-                <a onclick="page(this)" th:attr="data-page=${page.number}-1" class="item" th:unless="${page.first}">上一页</a>
-                <a onclick="page(this)" th:attr="data-page=${page.number}+1" class=" item" th:unless="${page.last}">下一页</a>
+              <div class="ui mini pagination menu" >
+                <a onclick="page(this)" th:attr="data-page=${pageinfo.prePage}"  class=" item" th:unless="${pageinfo.isFirstPage}">上一页</a>
+                <a onclick="page(this)" th:attr="data-page=${pageinfo.nextPage}" class=" item" th:unless="${pageinfo.isLastPage}">下一页</a>
               </div>
-              <a href="#" th:href="@{/admin/blogs/input}" class="ui mini right floated teal basic button">新增</a>
+              <a href="#" th:href="@{/admin/blogs/add}" class="ui mini right floated teal basic button">新增</a>
             </th>
           </tr>
           </tfoot>

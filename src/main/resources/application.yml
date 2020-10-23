@@ -21,6 +21,9 @@ spring:
     maxPoolPreparedStatementPerConnectionSize: 20
     useGlobalDataSourceStat: true
     connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=500
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
 
 #日志
 logging:
@@ -32,3 +35,15 @@ logging:
 #端口
 server:
   port: 8080
+#mybatis
+mybatis:
+  mapper-locations: com/xsyz/blog/mapper/*.xml
+  type-aliases-package: com.xsyz.po
+  configuration:
+    map-underscore-to-camel-case: true
+#分页
+pagehelper:
+  reasonable: true
+  support-methods-arguments: true
+  params: count=countSql
+
