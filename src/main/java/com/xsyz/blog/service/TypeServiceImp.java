@@ -18,6 +18,7 @@ public class TypeServiceImp implements TypeService {
     private Typemapper typemapper;
     @Override
     public int saveType(Type type) {
+
         int i = typemapper.saveType(type);
         return i;
     }
@@ -45,6 +46,11 @@ public class TypeServiceImp implements TypeService {
     @Override
     public Type selectById(Long id) {
         return typemapper.selectById(id);
+    }
+
+    @Override
+    public List<Type> selectAllOnly() {
+        return typemapper.selectAllOnly();
     }
 
 

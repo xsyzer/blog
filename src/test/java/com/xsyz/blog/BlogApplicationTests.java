@@ -37,10 +37,8 @@ class BlogApplicationTests {
     }
     @Test
     void testUser(){
-        Blog blog = new Blog();
-        blog.setTitle("t");
-        List<Blog> blogs = blogmapper.searchBlog(blog);
-        System.out.println(blogs);
+        List<Type> types = typeServiceImp.selectAll();
+        types.forEach(System.out::println);
     }
 }
 

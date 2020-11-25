@@ -12,8 +12,9 @@ public interface Tagmapper {
     @Insert("insert into t_tag(name) values(#{name})")
     int saveTag(Tag tag);
 
-    @Select("select * from t_tag")
+
     List<Tag> selectAll();
+    List<Tag> selectAllOnly();
 
     @Delete("delete from t_tag where id=#{id}")
     int delete(Long id);

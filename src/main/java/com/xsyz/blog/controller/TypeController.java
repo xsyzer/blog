@@ -26,8 +26,8 @@ public class TypeController {
     @RequestMapping
     public String type(@RequestParam(value = "pn",defaultValue = "1")Integer pn, Model model){
         //传入页码，和每页的页数
-       PageHelper.startPage(pn,3);
-        List<Type> types = typeService.selectAll();
+       PageHelper.startPage(pn,5);
+        List<Type> types = typeService.selectAllOnly();
         model.addAttribute("types",types);
         PageInfo<Type> typePageInfo = new PageInfo<>(types);
         model.addAttribute("info",typePageInfo);

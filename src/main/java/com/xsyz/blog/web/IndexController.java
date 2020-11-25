@@ -5,20 +5,14 @@ import com.github.pagehelper.PageInfo;
 import com.xsyz.blog.po.Blog;
 import com.xsyz.blog.po.Tag;
 import com.xsyz.blog.po.Type;
-import com.xsyz.blog.po.User;
 import com.xsyz.blog.service.BlogServiceImp;
 import com.xsyz.blog.service.TagServiceImp;
 import com.xsyz.blog.service.TypeServiceImp;
-import net.bytebuddy.asm.Advice;
-import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Sort;
-import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpSession;
 import java.util.List;
 
 /**
@@ -27,7 +21,7 @@ import java.util.List;
  */
 @Controller
 @RequestMapping("/")
-public class indexController {
+public class IndexController {
     @Autowired
     BlogServiceImp blogServiceImp;
     @Autowired
@@ -67,9 +61,4 @@ public class indexController {
             return "search";
         }
 
-/*    @GetMapping("/footer/newblog")
-    public String newblogs(Model model) {
-        model.addAttribute("newblogs", blogServiceImp.listRecommendBlogTop(3));
-        return "_fragments :: newblogList";
-    }*/
 }

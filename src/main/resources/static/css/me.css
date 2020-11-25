@@ -2,7 +2,14 @@
 body {
     background: url("../images/bg.png");
 }
-
+.index-bg{
+    background: url("../images/index.jpg");
+    background-size: cover;
+}
+.others-bg{
+    background: url("../images/pg1.jpg");
+    background-size: cover;
+}
 .m-padded-mini {
     padding: 0.2em !important;
 }

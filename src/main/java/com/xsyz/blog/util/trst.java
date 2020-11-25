@@ -2,6 +2,8 @@ package com.xsyz.blog.util;
 
 import com.xsyz.blog.po.Type;
 import org.junit.Test;
+import org.springframework.boot.autoconfigure.data.redis.RedisProperties;
+
 import java.util.ArrayList;
 import java.util.*;
 import java.util.stream.Collectors;
@@ -28,21 +30,6 @@ public class trst {
         collect.forEach(System.out::print);
 
     }
-    @Test
-    public void test2(){
-        ArrayList<Long> longs = new ArrayList<>();
-        longs.add(1l);
-        longs.add(4l);
-        longs.add(2l);
-        StringBuffer sb=new StringBuffer();
-        for (Long aLong : longs) {
-            if(sb.length()==0){
-                sb.append(aLong);
-            } else {
-                sb.append(","+aLong);
-            }
-        }
-        String string = sb.toString();
-        System.out.println(string);
-    }
+
+
 }

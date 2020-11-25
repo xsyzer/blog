@@ -12,12 +12,12 @@ public interface Typemapper {
     @Options(useGeneratedKeys = true,keyProperty = "id")
     @Insert("insert into t_type(name) values(#{name})")
     int saveType(Type type);
-    @Select("select * from t_type")
     List<Type> selectAll();
     int delete(Long id);
     int update(Type type);
     Type selectByName(String name);
     Type selectById(Long id);
+    List<Type> selectAllOnly();
 
 
 

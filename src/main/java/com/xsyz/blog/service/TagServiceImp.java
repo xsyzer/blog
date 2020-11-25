@@ -56,4 +56,9 @@ public class TagServiceImp implements TagService {
                                 .collect(Collectors.toList());
         return tags;
     }
+
+    @Override
+    public List<Tag> selectAllOnly() {
+        return tagmapper.selectAllOnly();
+    }
 }

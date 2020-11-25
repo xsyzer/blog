@@ -15,6 +15,4 @@ public interface Usermapper {
     User selectById(Integer id);
     @Select("Select * from t_user where username=#{username}")
     User selectByName(String username);
-    int add(User user);
-    int update(User user);
 }

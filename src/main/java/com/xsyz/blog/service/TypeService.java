@@ -13,4 +13,5 @@ public interface TypeService {
     int update(Type type);
     Type selectByName(String name);
     Type selectById(Long id);
+    List<Type> selectAllOnly();
 }

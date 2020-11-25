@@ -15,4 +15,5 @@ public interface TagService {
     Tag selectByName(String name);
     Tag selectById(Long id);
     List<Long> listTags(String ids);
+    List<Tag> selectAllOnly();
 }

@@ -30,10 +30,9 @@ public class Druid {
     public ServletRegistrationBean staViewServlet(){
         ServletRegistrationBean bean=new ServletRegistrationBean(new StatViewServlet(),"/druid/*");
         Map<String,String> initp=new HashMap<>();
-        initp.put("loginUsername","admin");
-        initp.put("loginPassword","123");
+        initp.put("loginUsername","root");
+        initp.put("loginPassword","2877147906.");
         initp.put("allow","localhost");
-        initp.put("deny","192.168.1.1");
         bean.setInitParameters(initp);
         return bean;
     }

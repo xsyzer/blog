@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.xsyz.blog.mapper.Typemapper">
-
-    <resultMap id="BlogInfo" type="com.xsyz.blog.po.Type">
+<mapper namespace="com.xsyz.blog.mapper.Tagmapper">
+    <resultMap id="BlogInfo" type="com.xsyz.blog.po.Tag">
         <id property="id" column="tid"/>
         <result property="name" column="tname"/>
         <collection property="blogs" ofType="com.xsyz.blog.po.Blog">
@@ -25,27 +24,15 @@
             <result property="typeId" column="type_id"/>
         </collection>
     </resultMap>
-    <update id="update">
-        update t_type set name=#{name} where id=#{id}
-    </update>
-    <delete id="delete">
-        delete from t_type where id=#{id}
-    </delete>
-    <select id="selectByName" resultType="com.xsyz.blog.po.Type">
-        select * from t_type where name=#{name};
-    </select>
-    <select id="selectById" resultType="com.xsyz.blog.po.Type">
-        select * from t_type where id=#{id};
-    </select>
+
     <select id="selectAll" resultMap="BlogInfo">
     SELECT b.id,b.first_picture,b.flag,b.title,b.content,b.views,b.update_time,b.commentabled,b.share_statement,
     b.appreciation,b.description,b.type_id,b.recommend,b.published,
     t.id tid ,t.name tname
-    from t_type t left join t_blog b
-    on b.type_id = t.id
-    </select>
-    <select id="selectAllOnly" resultType="com.xsyz.blog.po.Type">
-        select * from t_type
-    </select>
+	from t_tag t left  join t_blog_tags tb on t.id = tb.tags_id left  join t_blog b on tb.blogs_id = b.id
 
+    </select>
+    <select id="selectAllOnly" resultType="com.xsyz.blog.po.Tag">
+    select * from t_tag
+    </select>
 </mapper>

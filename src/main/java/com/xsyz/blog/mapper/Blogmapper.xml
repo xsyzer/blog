@@ -151,4 +151,28 @@
         from t_blog b, t_user u, t_type t
         where b.user_id = u.id and b.type_id = t.id  and u.id = 1 and b.title like #{query}
     </select>
+    <select id="getBlogByType"  resultMap="BlogInfo">
+        SELECT b.id,b.first_picture,b.flag,b.title,b.content,b.views,b.update_time,b.commentabled,b.share_statement,
+        b.appreciation,b.description,b.type_id,b.recommend,b.published,
+        u.nickname,u.avatar,t.id tid ,t.name
+        from t_blog b, t_user u, t_type t
+        where b.user_id = u.id and b.type_id = #{id} order by b.update_time desc
+    </select>
+    <select id="getBlogByTag" resultType="com.xsyz.blog.po.Blog" resultMap="BlogInfo">
+        SELECT b.id,b.first_picture,b.flag,b.title,b.content,b.views,b.update_time,b.commentabled,b.share_statement,
+        b.appreciation,b.description,b.type_id,b.recommend,b.published,
+        u.nickname,u.avatar,tp.id tid ,tp.name
+        from t_blog b, t_user u, t_blog_tags t,t_type tp
+	    where t.blogs_id = b.id and b.user_id = u.id and	t.tags_id = #{id} and b.type_id = tp.id
+    </select>
+    <select id="getYear" resultType="java.lang.String">
+         select DATE_FORMAT(b.update_time, '%Y') from t_blog b order by b.update_time desc
+    </select>
+    <select id="findByYear" resultType="com.xsyz.blog.po.Blog">
+     select b.title, b.update_time, b.id, b.flag
+        from t_blog b
+        where DATE_FORMAT(b.update_time, "%Y") = #{year}
+    </select>
+
+
 </mapper>

@@ -18,6 +18,6 @@ import java.util.List;
 public class Type {
     private long id;
     private String name;
-    private List<Blog> blogs = new ArrayList<>();
+    private List<Blog> blogs ;
 
 }

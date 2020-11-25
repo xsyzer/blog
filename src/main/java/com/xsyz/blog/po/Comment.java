@@ -20,13 +20,17 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Comment {
-    private long id;
+    private Long id;
     private String nickname;
     private String email;
     private String content;
     private String avatar;
     private Date createTime;
     private Blog blog;
+    private Long blogId;
+    private Long parentCommentId;
+    private String parentNickname;
     private List<Comment> replyComments = new ArrayList<>();
     private Comment parentComment;
-    private boolean adminComment;}
+    private boolean adminComment;
+}

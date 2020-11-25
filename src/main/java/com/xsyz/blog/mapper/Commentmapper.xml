@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xsyz.blog.mapper.Commentmapper">
+    <insert id="saveComment" parameterType="com.xsyz.blog.po.Comment">
+         insert into t_comment (nickname,email,content,avatar,create_time,parent_comment_id,blog_id,admin_comment)
+        values (#{nickname},#{email},#{content},#{avatar},#{createTime},#{parentCommentId},#{blogId},#{adminComment});
+    </insert>
+
+    <select id="findByParentIdNull" resultType="com.xsyz.blog.po.Comment">
+        select *
+        from t_comment c
+        where c.blog_id = #{blogId} and c.parent_comment_id is null
+        order by c.create_time desc
+    </select>
+    <select id="findByParentIdNotNull" resultType="com.xsyz.blog.po.Comment">
+        select *
+        from t_comment c
+        where c.blog_id = #{blogId} and c.parent_comment_id = #{ParentId}
+        order by c.create_time desc
+    </select>
+    <select id="findByReplayId" resultType="com.xsyz.blog.po.Comment">
+       select *
+        from t_comment c
+        where c.blog_id = #{blogId} and c.parent_comment_id = #{childId}
+        order by c.create_time desc
+    </select>
+</mapper>

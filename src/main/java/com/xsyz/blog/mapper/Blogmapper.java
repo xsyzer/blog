@@ -8,6 +8,7 @@ import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author xsyz
@@ -30,7 +31,12 @@ public interface Blogmapper {
     int deletebt(Long blogsId);
     int updateview(Long id);
     List<Tag> selectbtString(Long blogsId);
+    List<Blog> getBlogByType(Long id);
 /* **************************************************************** */
     List<Blog> searchBlogByString(String query);
+
+    List<Blog> getBlogByTag(Long id);
+    List<String> getYear();
+    List<Blog> findByYear(String year);
 
 }

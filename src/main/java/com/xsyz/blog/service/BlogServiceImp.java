@@ -1,5 +1,6 @@
 package com.xsyz.blog.service;
 
+import com.sun.org.apache.regexp.internal.RE;
 import com.xsyz.blog.NotFoundException;
 import com.xsyz.blog.mapper.Blogmapper;
 import com.xsyz.blog.po.Blog;
@@ -9,9 +10,7 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Comparator;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 
 /**
@@ -86,6 +85,30 @@ public class BlogServiceImp implements BlogService {
         List<Blog> blogs = blogmapper.searchBlogByString(query);
         return blogs;
 
+    }
+
+    @Override
+    public List<Blog> getBlogByType(Long id) {
+        return blogmapper.getBlogByType(id);
+    }
+
+    @Override
+    public List<Blog> getBlogByTag(Long id) {
+        return blogmapper.getBlogByTag(id);
+    }
+
+    @Override
+    public Map<String, List<Blog>> archiveBlog() {
+        List<String> y = blogmapper.getYear();
+        HashSet<String> year = new HashSet<>(y);
+        HashMap<String, List<Blog>> map = new HashMap<>();
+        year.stream().forEach(e->map.put(e,blogmapper.findByYear(e)));
+        return map;
+    }
+
+    @Override
+    public int countBlog() {
+        return blogmapper.findAllByUserId(1L).size();
     }
 
     public int saveblog(Blog blog){

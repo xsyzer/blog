@@ -149,6 +149,20 @@
           .closest('.message')
           .transition('fade');
       });
+    
+    $(function () {
+      $(".red").click(function () {
+        var a = window.confirm("确定删除？");
+        if(a) {
+          console.log("1");
+          return true;
+        } else {
+          console.log("0");
+          return false;
+        }
+
+      })
+    })
   </script>
 </body>
 </html>

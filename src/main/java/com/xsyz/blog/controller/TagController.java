@@ -26,8 +26,8 @@ public class TagController {
     @RequestMapping
     public String type(@RequestParam(value = "pn",defaultValue = "1")Integer pn, Model model){
         //传入页码，和每页的页数
-       PageHelper.startPage(pn,3);
-        List<Tag> tags = tagService.selectAll();
+       PageHelper.startPage(pn,5);
+        List<Tag> tags = tagService.selectAllOnly();
         model.addAttribute("tags",tags);
         PageInfo<Tag> tagPageInfo = new PageInfo<>(tags);
         model.addAttribute("info",tagPageInfo);
