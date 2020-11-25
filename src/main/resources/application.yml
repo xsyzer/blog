@@ -30,7 +30,7 @@ spring:
     database: 0
 
 comment:
-  avatar: static/images/avatar.gif
+  avatar: /images/avatar.png
 #日志
 logging:
   level:

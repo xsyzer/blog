@@ -12,6 +12,7 @@ int saveComment(Comment comment);
 List<Comment> findByParentIdNull(@Param("blogId") Long blogId,@Param("ParentId")Long ParentId);
 List<Comment> findByParentIdNotNull(@Param("blogId") Long blogId,@Param("ParentId")Long ParentId);
 List<Comment> findByReplayId(@Param("blogId") Long blogId,Long childId);
+void deleteComment(Long id);
 
 
 }

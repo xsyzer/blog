@@ -71,4 +71,11 @@ public class CommentServiceImp implements CommentService {
         comment.setCreateTime(new Date());
         return commentmapper.saveComment(comment);
     }
+
+    @Override
+    public void deleteComment(Long id) {
+        commentmapper.deleteComment(id);
+    }
+
+
 }
