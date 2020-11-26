@@ -21,7 +21,6 @@ import java.util.List;
  * @created 2020-10-28   14:21
  */
 @Controller
-@CrossOrigin
 public class TagControllerShow {
     @Autowired
     private TagServiceImp tagServiceImp;
