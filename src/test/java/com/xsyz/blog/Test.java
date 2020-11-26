@@ -10,12 +10,6 @@ import java.util.List;
  */
 public class Test {
     public static void main(String[] args) {
-        List<String> y = new ArrayList<>();
-        y.add("2011");
-        y.add("2011");
-        y.add("2012");
-        HashSet<String> year = new HashSet<>(y);
-        //y.stream().forEach(e->year.add(e));
-        System.out.println(year);
+
     }
 }
