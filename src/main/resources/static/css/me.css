@@ -1,13 +1,13 @@
 
 body {
-    background: url("../images/bg.png");
+    background: url("http://imgoss.cnu.cc/2011/18/e40db3ebbdb830a1b0991c06bdc2c71d.jpg");
 }
 .index-bg{
-    background: url("../images/index.jpg");
+    background: url("http://imgoss.cnu.cc/2011/18/e40db3ebbdb830a1b0991c06bdc2c71d.jpg");
     background-size: cover;
 }
 .others-bg{
-    background: url("../images/pg1.jpg");
+    background: url("http://imgoss.cnu.cc/2011/18/e40db3ebbdb830a1b0991c06bdc2c71d.jpg");
     background-size: cover;
 }
 .m-padded-mini {

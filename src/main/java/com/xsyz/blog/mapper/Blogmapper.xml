@@ -130,7 +130,7 @@
     b.appreciation,b.description,b.type_id,b.recommend,b.published,
     u.nickname,u.avatar,t.id tid ,t.name
     from t_blog b, t_user u, t_type t
-    where b.user_id = u.id and b.type_id = t.id  and u.id = #{id}
+    where b.user_id = u.id and b.type_id = t.id  and u.id = #{id} ORDER BY update_time DESC
     </select>
     <select id="findById" resultMap="BlogInfo">
         select  b.id,b.first_picture,b.flag,b.title,b.content,b.views,b.update_time,b.commentabled,b.share_statement,

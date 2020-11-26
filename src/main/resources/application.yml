@@ -30,7 +30,7 @@ spring:
     database: 0
 
 comment:
-  avatar: /images/avatar.png
+  avatar: https://gitee.com/xsyzer/image_01/raw/master/img/20201125142111.png
 #日志
 logging:
   level:
