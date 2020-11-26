@@ -42,7 +42,7 @@ public class IndexController {
         model.addAttribute("recommendBlogs",blogServiceImp.listRecommendBlogTop(4));
         return "index";
     }
-    @GetMapping("/blog/{id}")
+    @GetMapping("/{id}")
     public String getblog(@PathVariable Long id,Model model){
         Blog blog = blogServiceImp.selectAndconvert(id);
         model.addAttribute("blog",blog);

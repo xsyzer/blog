@@ -65,7 +65,7 @@ public class CommentController {
         Blog blog = blogServiceImp.selectAndconvert(blogId);
         model.addAttribute("blog",blog);
         attributes.addAttribute("id",blogId);
-        return "redirect:/blog/{id}";
+        return "redirect:/{id}";
     }
 
 }
