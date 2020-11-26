@@ -48,7 +48,7 @@ public class BlogController {
 
     @RequestMapping("/search")
     public String search(@RequestParam(defaultValue = "1",value = "pn") Integer pn,  Blog blog, Model model){
-        PageHelper.startPage(pn,3);
+        PageHelper.startPage(pn,8);
         List<Blog> blogs = blogService.searchBlog(blog);
         PageInfo<Blog> blogPageInfo = new PageInfo<>(blogs);
         model.addAttribute("blog",blogs);
